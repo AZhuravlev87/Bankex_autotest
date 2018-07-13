@@ -22,12 +22,41 @@ Feature: Тестирование регистрация SSO simple flow
         And   Очистить поле "E-Mail" если требуется
         And   Ввожу "E-Mail": "test@test"
         And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
         And   Ввожу "E-Mail": "test@test.c"
         And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
         And   Ввожу "E-Mail": "test@test.com"
         And   Проверка ошибки "The input is not valid E-mail!"
-#        And   Прохожу Captcha
-#        And   Нажимаю подтверждение
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test)@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test(@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test<@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test>@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test@@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test[@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test]@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test:@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+        And   Ввожу "E-Mail": "test;@test.com"
+        And   Проверка ошибки "The input is not valid E-mail!"
+        And   Очистить поле "E-Mail" если требуется
+
 
 #@3
 #    Scenario: Зайти в приложение
