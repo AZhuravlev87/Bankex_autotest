@@ -1,5 +1,5 @@
 Given(/^Открываю в браузере BANKEX$/) do
-    @driver.get('https://profile-dev.bankexlab.com/')
+    @driver.get(PROFILE_DEV)
     @driver.manage().window().maximize()
     sleep 2
 end
@@ -94,68 +94,13 @@ And(/^Нажимаю кнопку ОК$/) do
     el.click
 end
 
-And(/^Проверка ошибки "(.*)"$/) do |elm|
-    if @driver.find_element(xpath: "//*[text() = '#{elm}']").displayed? == true
-        puts "Ошибка видна"
-        el = @driver.find_element(xpath: "//*[text() = '#{elm}']")
-        if el.displayed?
-        puts "Ошибка: #{elm}"
 
-        else
-        puts "Ошибки нет"
-        end
-        sleep 2
-    else
-        case elm
-        when "test@test.com"
-            puts "Правильный E-mail"
-        when "test@t.es-t.com"
-            puts "Правильный E-mail"
-        else
-            puts "Ошибка: Не правильный E-mail"
-        end
-    end
-end
-
-And(/^Проверка валидации "(.*)", "(.*)"$/) do |elm, elm2|
-    el = @driver.find_element(xpath: "//input[@placeholder = '#{elm}']")
-    el if el && el.displayed?
-    el.send_keys elm
-    @driver.action.send_keys(:tab).perform
-    case elm
-    when "test@test.com"
-        if @driver.find_element(xpath: "//*[text() = '#{elm}']").displayed? == true
-            puts "#{elm2}"
-    when "Роль пользователя"
-        find(:xpath, "//div/span[text() = '#{text}']")
-    when "Заголовок вкладки"
-        find(:xpath, "//div/h1[text() = '#{text}']")
-    when "Заголовок области"
-        find(:xpath, "//div/h2[text() = '#{text}']")
-    when "Ссылку"
-        find(:xpath, "//button/span[text() = '#{text}']")
-    when "Ссылку2"
-        find(:xpath, "(//button/span[text() = '#{text}'])[2]")    
-    when "Строку для выбора"
-        if text == " Оператор "
-            find(:xpath, "//div/mat-option/span[text() = '#{text}']")  
-        else
-            find(:xpath, "//div/mat-option/span[contains(text(), '#{text}')]")
-        end
-   end
-end
 
 And(/^Очистить поле "(.*)" если требуется$/) do |elm|
     el = @driver.find_element(xpath: "//input[@placeholder = '#{elm}']")
     el.clear
 end
-Then(/^LK_Проверили адрес почты "(.*)"$/) do |el|
-     case el
-    when "kgfh@mail.ru"
-        здесь твой код
-    when "hfgfj@dhdj"
-        здесь твой код
-    when "ghfjfd"
-        здесь твой код
-    end
+
+And(/^Проверка валидации E-mail$/) do |elm|
+    
 end

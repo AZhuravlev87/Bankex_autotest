@@ -6,3 +6,16 @@ def generate_random_en_string(len)
     len_range = range.length - 1
     (len.times.map { range[rand(len_range)] }).join
 end
+
+=begin
+Then(/^LK_Проверили адрес почты "(.*)"$/) do |el|
+    case el
+   when "kgfh@mail.ru"
+       здесь твой код
+   when "hfgfj@dhdj"
+       здесь твой код
+   when "ghfjfd"
+       здесь твой код
+   end
+end
+=end
